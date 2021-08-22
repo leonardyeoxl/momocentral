@@ -56,7 +56,8 @@ def checkHorizontal(arr, row_index, col_index, max_cols, VALID_COUNT):
         return True
     return False
 
-
+# Time Complexity: O(N*M*(N-1+M-1)). Given N is the number of elements in a row and M is the number of elements in a column.
+# Space Complexity: O(1). No auxiliary memory used.
 def count_chains(arr):
     max_rows = len(arr)
     max_cols = len(arr[0])
