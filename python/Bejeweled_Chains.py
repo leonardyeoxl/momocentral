@@ -7,15 +7,8 @@ def checkVertical(arr, row_index, col_index, max_rows, VALID_COUNT):
         start_row_index = row_index-1
     elif row_index == 0:
         start_row_index = 0
-    
-    if row_index == 0:
-        while index <= max_rows-1:
-            if num == arr[index][col_index]:
-                count += 1
-            else:
-                break
-            index += 1
-    elif start_row_index >= 0 and num != arr[start_row_index][col_index]:
+
+    if row_index == 0 or (start_row_index >= 0 and num != arr[start_row_index][col_index]):
         while index <= max_rows-1:
             if num == arr[index][col_index]:
                 count += 1
@@ -37,14 +30,7 @@ def checkHorizontal(arr, row_index, col_index, max_cols, VALID_COUNT):
     elif col_index == 0:
         start_col_index = 0
 
-    if col_index == 0:
-        while index <= max_cols-1:
-            if num == arr[row_index][index]:
-                count += 1
-            else:
-                break
-            index += 1
-    elif start_col_index >= 0 and num != arr[row_index][start_col_index]:
+    if col_index == 0 or (start_col_index >= 0 and num != arr[row_index][start_col_index]):
         while index <= max_cols-1:
             if num == arr[row_index][index]:
                 count += 1
@@ -56,8 +42,8 @@ def checkHorizontal(arr, row_index, col_index, max_cols, VALID_COUNT):
         return True
     return False
 
-# Time Complexity: O(N*M*(N-1+M-1)). Given N is the number of elements in a row and M is the number of elements in a column.
-# Space Complexity: O(1). No auxiliary memory used.
+# Time Complexity: O(N*M*(N-1+M-1)). Given N is the number of rows of the array and M is the number of elements in the row.
+# Space Complexity: O(1)
 def count_chains(arr):
     max_rows = len(arr)
     max_cols = len(arr[0])
